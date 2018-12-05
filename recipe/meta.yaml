@@ -1,6 +1,6 @@
 {% set name = "service_identity" %}
-{% set version = "17.0.0" %}
-{% set sha256 = "4001fbb3da19e0df22c47a06d29681a398473af4aa9d745eca525b3b2c2302ab" %}
+{% set version = "18.1.0" %}
+{% set sha256 = "0858a54aabc5b459d1aafa8a518ed2081a285087f349fe3e55197989232e2e2d" %}
 
 package:
   name: {{ name|lower }}
