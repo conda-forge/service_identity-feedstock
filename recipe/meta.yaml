@@ -1,6 +1,6 @@
 {% set name = "service_identity" %}
-{% set version = "18.1.0" %}
-{% set sha256 = "0858a54aabc5b459d1aafa8a518ed2081a285087f349fe3e55197989232e2e2d" %}
+{% set version = "23.1.0" %}
+{% set sha256 = "ecb33cd96307755041e978ab14f8b14e13b40f1fbd525a4dc78f46d2b986431d" %}
 
 package:
   name: {{ name|lower }}
@@ -35,7 +35,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Service identity verification for pyOpenSSL.'
+  summary: Service identity verification for pyOpenSSL.
   description: |
     service_identity aspires to give you all the tools you need for verifying
     whether a certificate is valid for the intended purposes.
