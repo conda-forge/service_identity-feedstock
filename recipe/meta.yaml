@@ -1,47 +1,63 @@
-{% set name = "service_identity" %}
-{% set version = "18.1.0" %}
-{% set sha256 = "0858a54aabc5b459d1aafa8a518ed2081a285087f349fe3e55197989232e2e2d" %}
+{% set name = "service-identity" %}
+{% set version = "21.1.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-build
   version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 6e6c6086ca271dc11b033d17c3a8bea9f24ebff920c587da090afc9519419d34
 
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed . --verbose
 
-requirements:
-  host:
-    - python
-    - pip
-  run:
-    - python
-    - attrs >=16.0.0
-    - pyasn1
-    - pyasn1-modules
-    - pyopenssl >=0.12
+outputs:
+  - name: service-identity
+    script: build_base.sh
+    build:
+      noarch: python
+    requirements:
+      host:
+        - pip
+        - python >=2.7
+        - setuptools >=40.6.0
+      run:
+        - attrs >=19.1.0
+        - cryptography
+        - pyasn1
+        - pyasn1-modules
+        - pyopenssl >=0.12
+        - python >=2.7
+        - six
+    test:
+      imports:
+        - service_identity
 
-test:
-  imports:
-    - service_identity
+  - name: service_identity
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ pin_subpackage('service-identity', max_pin="x.x.x") }}
+    test:
+      imports:
+        - service_identity
 
 about:
-  home: https://github.com/pyca/service_identity
+  home: https://github.com/pyca/service-identity
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Service identity verification for pyOpenSSL.'
+  summary: Service identity verification for pyOpenSSL.
   description: |
     service_identity aspires to give you all the tools you need for verifying
     whether a certificate is valid for the intended purposes.
   doc_url: https://service-identity.readthedocs.io/en/stable/
-  dev_url: https://github.com/pyca/service_identity
+  dev_url: https://github.com/pyca/service-identity
 
 extra:
+  feedstock-name: service_identity
   recipe-maintainers:
     - isuruf
