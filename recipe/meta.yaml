@@ -1,13 +1,13 @@
 {% set name = "service-identity" %}
-{% set version = "21.1.0" %}
+{% set version = "24.1.0" %}
 
 package:
   name: {{ name|lower }}-build
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6e6c6086ca271dc11b033d17c3a8bea9f24ebff920c587da090afc9519419d34
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 6829c9d62fb832c2e1c435629b0a8c476e1929881f28bee4d20bc24161009221
 
 build:
   noarch: python
