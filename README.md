@@ -1,4 +1,4 @@
-About service_identity-feedstock
+About service-identity-feedstock
 ================================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/service_identity-feedstock/blob/main/LICENSE.txt)
@@ -36,28 +36,31 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-service--identity-green.svg)](https://anaconda.org/conda-forge/service-identity) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/service-identity.svg)](https://anaconda.org/conda-forge/service-identity) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/service-identity.svg)](https://anaconda.org/conda-forge/service-identity) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/service-identity.svg)](https://anaconda.org/conda-forge/service-identity) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-service--identity--with--all-green.svg)](https://anaconda.org/conda-forge/service-identity-with-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/service-identity-with-all.svg)](https://anaconda.org/conda-forge/service-identity-with-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/service-identity-with-all.svg)](https://anaconda.org/conda-forge/service-identity-with-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/service-identity-with-all.svg)](https://anaconda.org/conda-forge/service-identity-with-all) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-service--identity--with--idna-green.svg)](https://anaconda.org/conda-forge/service-identity-with-idna) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/service-identity-with-idna.svg)](https://anaconda.org/conda-forge/service-identity-with-idna) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/service-identity-with-idna.svg)](https://anaconda.org/conda-forge/service-identity-with-idna) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/service-identity-with-idna.svg)](https://anaconda.org/conda-forge/service-identity-with-idna) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-service--identity--with--pyopenssl-green.svg)](https://anaconda.org/conda-forge/service-identity-with-pyopenssl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/service-identity-with-pyopenssl.svg)](https://anaconda.org/conda-forge/service-identity-with-pyopenssl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/service-identity-with-pyopenssl.svg)](https://anaconda.org/conda-forge/service-identity-with-pyopenssl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/service-identity-with-pyopenssl.svg)](https://anaconda.org/conda-forge/service-identity-with-pyopenssl) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-service_identity-green.svg)](https://anaconda.org/conda-forge/service_identity) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/service_identity.svg)](https://anaconda.org/conda-forge/service_identity) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/service_identity.svg)](https://anaconda.org/conda-forge/service_identity) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/service_identity.svg)](https://anaconda.org/conda-forge/service_identity) |
 
-Installing service_identity
+Installing service-identity
 ===========================
 
-Installing `service_identity` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `service-identity` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `service-identity, service_identity` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `service-identity, service-identity-with-all, service-identity-with-idna, service-identity-with-pyopenssl, service_identity` can be installed with `conda`:
 
 ```
-conda install service-identity service_identity
+conda install service-identity service-identity-with-all service-identity-with-idna service-identity-with-pyopenssl service_identity
 ```
 
 or with `mamba`:
 
 ```
-mamba install service-identity service_identity
+mamba install service-identity service-identity-with-all service-identity-with-idna service-identity-with-pyopenssl service_identity
 ```
 
 It is possible to list all of the versions of `service-identity` available on your platform with `conda`:
@@ -127,17 +130,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating service_identity-feedstock
+Updating service-identity-feedstock
 ===================================
 
-If you would like to improve the service_identity recipe or build a new
+If you would like to improve the service-identity recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/service_identity-feedstock are
+Note that all branches in the conda-forge/service-identity-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
@@ -152,5 +155,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@isuruf](https://github.com/isuruf/)
 
