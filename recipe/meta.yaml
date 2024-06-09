@@ -1,5 +1,8 @@
 {% set version = "24.1.0" %}
 
+# handle undefined PYTHON in `noarch: generic` outputs
+{% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
+
 package:
   name: service-identity
   version: {{ version }}
