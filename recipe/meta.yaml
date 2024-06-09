@@ -1,12 +1,14 @@
-{% set name = "service-identity" %}
 {% set version = "24.1.0" %}
 
+# handle undefined PYTHON in `noarch: generic` outputs
+{% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
+
 package:
-  name: {{ name|lower }}-build
+  name: service-identity-build
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/s/service-identity/service_identity-{{ version }}.tar.gz
   sha256: 6829c9d62fb832c2e1c435629b0a8c476e1929881f28bee4d20bc24161009221
 
 build:
@@ -15,25 +17,33 @@ build:
 
 outputs:
   - name: service-identity
-    script: build_base.sh
     build:
       noarch: python
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
+        - hatch-fancy-pypi-readme
+        - hatch-vcs
+        - hatchling
         - pip
-        - python >=2.7
-        - setuptools >=40.6.0
+        - python >=3.8
       run:
         - attrs >=19.1.0
         - cryptography
         - pyasn1
         - pyasn1-modules
-        - pyopenssl >=0.12
-        - python >=2.7
-        - six
+        - python >=3.8
     test:
+      source_files:
+        - tests
+      requires:
+        - pip
       imports:
         - service_identity
+      commands:
+        - pip check
+        - coverage run --source=service_identity --branch -m pytest -vv --tb=long --color=yes
+        - coverage report --show-missing --skip-covered --fail-under=100
 
   - name: service_identity
     build:
@@ -61,3 +71,4 @@ extra:
   feedstock-name: service_identity
   recipe-maintainers:
     - isuruf
+    - bollwyvl
