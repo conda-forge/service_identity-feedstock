@@ -29,23 +29,20 @@ requirements:
     - pyasn1
     - pyasn1-modules
     - python >=3.8
+  run_constrained:
+    - {{ pin_subpackage("service_identity", max_pin="x.x.x") }}
+
 test:
-  source_files:
-    - tests
   requires:
-    - coverage
-    - idna
     - pip
-    - pytest
   imports:
     - service_identity
   commands:
     - pip check
-    - coverage run --source=service_identity --branch -m pytest -vv --tb=long --color=yes
-    - coverage report --show-missing --skip-covered --fail-under=90
 
 outputs:
   - name: service-identity
+
   - name: service_identity
     build:
       noarch: generic
@@ -55,6 +52,50 @@ outputs:
     test:
       imports:
         - service_identity
+
+  - name: service-identity-with-pyopenssl
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ pin_subpackage("service-identity", max_pin="x.x.x") }}
+        - pyopenssl
+    test:
+      imports:
+        - service_identity
+
+  - name: service-identity-with-idna
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ pin_subpackage("service-identity", max_pin="x.x.x") }}
+        - idna
+    test:
+      imports:
+        - service_identity
+
+  - name: service-identity-with-all
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ pin_subpackage("service-identity", max_pin="x.x.x") }}
+        - {{ pin_subpackage("service-identity-with-idna", max_pin="x.x.x") }}
+        - {{ pin_subpackage("service-identity-with-pyopenssl", max_pin="x.x.x") }}
+    test:
+      source_files:
+        - tests
+      requires:
+        - coverage
+        - pip
+        - pytest
+      imports:
+        - service_identity
+      commands:
+        - pip check
+        - coverage run --source=service_identity --branch -m pytest -vv --tb=long --color=yes
+        - coverage report --show-missing --skip-covered --fail-under=98
 
 about:
   home: https://github.com/pyca/service-identity
