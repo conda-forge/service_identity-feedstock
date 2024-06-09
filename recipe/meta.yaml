@@ -19,7 +19,7 @@ outputs:
   - name: service-identity
     build:
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
     requirements:
       host:
         - hatch-fancy-pypi-readme
@@ -37,7 +37,9 @@ outputs:
       source_files:
         - tests
       requires:
+        - coverage
         - pip
+        - pytest
       imports:
         - service_identity
       commands:
