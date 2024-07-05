@@ -110,6 +110,7 @@ about:
   dev_url: https://github.com/pyca/service-identity
 
 extra:
+  feedstock-name: service_identity
   recipe-maintainers:
     - isuruf
     - bollwyvl
