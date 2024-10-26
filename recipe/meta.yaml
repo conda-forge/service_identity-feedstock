@@ -1,4 +1,4 @@
-{% set version = "24.1.0" %}
+{% set version = "24.2.0" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/service-identity/service_identity-{{ version }}.tar.gz
-  sha256: 6829c9d62fb832c2e1c435629b0a8c476e1929881f28bee4d20bc24161009221
+  sha256: b8683ba13f0d39c6cd5d625d2c5f65421d6d707b013b375c355751557cbe8e09
 
 build:
   number: 0
