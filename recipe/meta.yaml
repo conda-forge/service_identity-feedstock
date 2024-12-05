@@ -8,11 +8,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/service-identity/service_identity-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/service-identity/service_identity-{{ version }}.tar.gz
   sha256: b8683ba13f0d39c6cd5d625d2c5f65421d6d707b013b375c355751557cbe8e09
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -25,19 +25,20 @@ requirements:
     - hatch-vcs
     - hatchling
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
     - attrs >=19.1.0
     - cryptography
     - pyasn1
     - pyasn1-modules
-    - python >=3.8
+    - python >={{ python_min }}
   run_constrained:
     - {{ pin_subpackage("service_identity", max_pin="x.x.x") }}
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - service_identity
   commands:
