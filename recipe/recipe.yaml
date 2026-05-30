@@ -37,7 +37,7 @@ outputs:
         - cryptography >=47
         - python >=${{ python_min }}
       run_constraints:
-        - ${{ pin_subpackage("service_identity", upper_bound="x.x.x") }}
+        - service_identity ${{ version }}.*
 
   - package:
       name: service_identity

@@ -3,7 +3,7 @@ About service_identity-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/service_identity-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/pyca/service-identity
+Home: https://pypi.org/project/service-identity
 
 Package license: MIT
 
@@ -11,11 +11,10 @@ Summary: Service identity verification for pyOpenSSL.
 
 Development: https://github.com/pyca/service-identity
 
-Documentation: https://service-identity.readthedocs.io/en/stable/
+Documentation: https://service-identity.readthedocs.io/
 
 service_identity aspires to give you all the tools you need for verifying
 whether a certificate is valid for the intended purposes.
-
 
 Current build status
 ====================
